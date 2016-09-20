@@ -1,7 +1,6 @@
-# nodeJsExamples
-# Some util examples with NodeJS
+# Some nice examples with NodeJS
 
-1. Upload files to GDrive using the Google Drive API
+## Upload files to GDrive using the Google Drive API (OAuth2 client used)
 
 Prerequisites:
 
