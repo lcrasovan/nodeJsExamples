@@ -14,7 +14,7 @@ var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
 var TOKEN_PATH = TOKEN_DIR + 'drive-nodejs-quickstart.json';
 
-var fileToUpload = 'put_here_the_File_to_upload';
+var fileToUpload = 'put_here_the_File_to_upload.csv';
 var sourceFolder = 'relative/path/to/the/folder/where/the/file/to/upload/is';
 
 // Load client secrets from a local file.
