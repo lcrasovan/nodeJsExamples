@@ -2,7 +2,7 @@
 
 For all examples execute first the
 
-npm install <your-dependencies>
+npm install your-dependency
 
 After that, to tun the examples, first pass through the prerequisites and, finally, after setting up credentials and
 all the needed authentication steps, do
