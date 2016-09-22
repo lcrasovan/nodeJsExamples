@@ -4,6 +4,10 @@ For all examples execute first the
 
 npm install <your-dependencies>
 
+After that, to tun the examples, first pass through the prerequisites and, finally, after setting up credentials and
+all the needed authentication steps, do
+
+node file_name.js
 
 ## Upload files to GDrive using the Google Drive API (OAuth2 client)
 
