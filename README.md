@@ -1,10 +1,18 @@
 # Some nice examples with NodeJS
 
-For all examples execute first the
+For installing the dependencies run
 
-npm install your-dependency
+npm install
 
-After that, to tun the examples, first pass through the prerequisites and, finally, after setting up credentials and
+You can configure your gulp tasks by editing the gulpfile.js
+
+By default running
+
+gulp
+
+Will run the default task that consists in downloading and uploading a file, sequencialy.
+
+To tun the examples individually, first pass through the prerequisites and, finally, after setting up credentials and
 all the needed authentication steps, do
 
 node file_name.js
@@ -18,7 +26,6 @@ https://developers.google.com/drive/v3/web/quickstart/nodejs
 The sample is uploding a spreadsheet type doc following the examples from:
 
 https://github.com/google/google-api-nodejs-client/#example-specifying-default-service-client-query-parameters
-
 
 ## Get AWS S3 stored image dimensions and list your buckets
 
