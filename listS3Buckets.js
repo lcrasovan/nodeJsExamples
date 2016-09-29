@@ -4,7 +4,6 @@ var AWS = require('aws-sdk');
 // 1. list your buckets
 var s3 = new AWS.S3('you_origin_name.s3.amazonaws.com');
 
-
 s3.listBuckets(function(err, data) {
     if (err) { console.log("Error:", err); }
     else {

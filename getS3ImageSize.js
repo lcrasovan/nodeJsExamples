@@ -15,3 +15,8 @@ s3.listBuckets(function(err, data) {
     }
 });
 
+// 2. List you image sizes
+size('some bucket', 'some key', function(err, dimensions, bytesRead) {
+    console.log(err, dimensions, bytesRead);
+});
+
