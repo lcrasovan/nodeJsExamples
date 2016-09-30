@@ -1,9 +1,8 @@
-var size = require('image-size'),
-    AWS = require('aws-sdk'),
+var AWS = require('aws-sdk'),
     gm = require('gm').subClass({imageMagick: true}),
     fs = require('fs');
 
-var config = fs.readFileSync(__dirname + 'config.json'),
+var config = JSON.parse(fs.readFileSync(__dirname + '/config.json')),
     s3 = new AWS.S3(config.aws.origin),
     bucket = config.aws.bucket,
     minimumLimitSize = config.maximumLimitSize,

@@ -1,6 +1,6 @@
 var ftpClient = require('ftp-client'),
     fs = require('fs'),
-    config = fs.readFileSync(__dirname + 'config.json'),
+    config = JSON.parse(fs.readFileSync(__dirname + '/config.json')),
     moment = require('moment'),
     port = config.ftp.port,
     host = config.ftp.host,
