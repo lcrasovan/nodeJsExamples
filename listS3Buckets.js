@@ -1,7 +1,7 @@
 var AWS = require('aws-sdk'),
     fs = require('fs');
 
-var config = fs.readFileSync(__dirname + 'config.json'),
+var config = JSON.parse(fs.readFileSync(__dirname + '/config.json')),
     s3 = new AWS.S3(config.aws.origin);
 
 s3.listBuckets(function(err, data) {

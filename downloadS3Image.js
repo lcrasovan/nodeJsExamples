@@ -2,7 +2,7 @@ var size = require('image-size'),
     AWS = require('aws-sdk'),
     fs = require('fs');
 
-var config = fs.readFileSync(__dirname + 'config.json'),
+var config = JSON.parse(fs.readFileSync(__dirname + '/config.json')),
     s3 = new AWS.S3(config.aws.origin),
     bucket = config.aws.bucket,
     samplePhotoKey = config.samplePhotoKey;
