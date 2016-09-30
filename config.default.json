@@ -5,6 +5,7 @@
   },
   "maxKeys": 1000,
   "minWidth": 1000,
+  "minimumLimitSize": 200000,
   "pathToPhotosWithPrefix": "relative/path/to/your/image/folder/your_prefix",
   "samplePhotoKey": "s3/key/of/your/sample/photo",
   "localPhotoPath": "relative/path/to/destination/photo",
