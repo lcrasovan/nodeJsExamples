@@ -23,10 +23,11 @@ function downloadWithStreams(params) {
 // VERY IMPORTANT - this fails silently if key contains percent encoded chars
 // like: "%C3%A0_lYlang-Ylang"
 function downloadWithBuffers(params) {
-   s3.getObject(params).
-   on('httpData', function(chunk) { file.write(chunk); }).
-   on('httpDone', function() { file.end(); }).
-   send();
+   s3.getObject(params).on('httpData', function (chunk) {
+      file.write(chunk);
+   }).on('httpDone', function () {
+      file.end();
+   }).send();
 }
 
 downloadWithBuffers(params);
