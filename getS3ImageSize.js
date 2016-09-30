@@ -5,7 +5,7 @@ var AWS = require('aws-sdk'),
 var config = JSON.parse(fs.readFileSync(__dirname + '/config.json')),
     s3 = new AWS.S3(config.aws.origin),
     bucket = config.aws.bucket,
-    minimumLimitSize = config.maximumLimitSize,
+    minimumLimitSize = config.minimumLimitSize,
     maxKeys = config.maxKeys,
     minWidth = config.minWidth,
     pathToPhotosWithPrefix = config.pathToPhotosWithPrefix,
@@ -27,8 +27,9 @@ function showImageDimensions(params) {
             if (err) {
                 console.log(err, err.stack);
             } else {
+                console.log('Possible small image:' + params['Key']);
                 if (size.width < minWidth) {
-                    console.log('Possible small image:' +
+                    console.log('Small image:' +
                         params['Key'] + ' | dimensions: ' +
                         size.width +
                         'x' +
@@ -47,9 +48,11 @@ s3.listObjects(params, function(err, data) {
         console.log('Total photos in folder: ' + data['Contents'].length);
         var counter = 0;
         data['Contents'].forEach(function(item) {
+            console.log(item['Size']);
             if (item['Size'] < minimumLimitSize) {
                 counter++;
                 var imageParams = {Bucket: bucket, Key: item['Key']};
+                console.log(item['Key']);
                 showImageDimensions(imageParams);
             }
         });
