@@ -1,8 +1,8 @@
-var size = require('s3-image-size');
-var AWS = require('aws-sdk');
+var AWS = require('aws-sdk'),
+    fs = require('fs');
 
-// 1. list your buckets
-var s3 = new AWS.S3('you_origin_name.s3.amazonaws.com');
+var config = fs.readFileSync(__dirname + 'config.json'),
+    s3 = new AWS.S3(config.aws.origin);
 
 s3.listBuckets(function(err, data) {
     if (err) { console.log("Error:", err); }

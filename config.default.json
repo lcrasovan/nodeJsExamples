@@ -1,0 +1,19 @@
+{
+  "aws": {
+    "origin": "your_origin_name.s3.amazonaws.com",
+    "bucket": "your_bucket_name"
+  },
+  "maxKeys": 1000,
+  "minWidth": 1000,
+  "pathToPhotosWithPrefix": "relative/path/to/your/image/folder/your_prefix",
+  "samplePhotoKey": "s3/key/of/your/sample/photo",
+  "localPhotoPath": "relative/path/to/destination/photo",
+  "ftp": {
+    "host": "IP.YOUR.FTP.HOST",
+    "port": 21,
+    "userName": "yourFtpUserName",
+    "password": "yourFtpPassword",
+    "srcFolder": "yourFtpFolder",
+    "destinationFolderPath": "relative/path/to/your/local/destination/folder"
+  }
+}

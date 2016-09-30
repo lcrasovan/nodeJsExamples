@@ -1,16 +1,19 @@
 var ftpClient = require('ftp-client'),
+    fs = require('fs'),
+    config = fs.readFileSync(__dirname + 'config.json'),
     moment = require('moment'),
-    port = 21,
-    ftpUserName = 'ftpUserName',
-    ftpPassword = 'ftpPassword',
+    port = config.ftp.port,
+    host = config.ftp.host,
+    ftpUserName = config.ftp.userName,
+    ftpPassword = config.ftp.password,
     config = {
-        host: 'IP.OF.FTP.HOST',
+        host: host,
         port: port,
         user: ftpUserName,
         password: ftpPassword
     },
-    ftpFolder = 'yourUploadFolder',
-    localDestinationFolder = 'relative/path/to/local/destination/folder', 
+    ftpFolder = config.ftp.srcFolder,
+    localDestinationFolder = config.ftp.destinationFolderPath, 
     options = {
         logging: 'basic'
     },

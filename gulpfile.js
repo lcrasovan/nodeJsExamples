@@ -21,5 +21,14 @@ gulp.task('upload', function(callBack) {
     });
 });
 
+// upload task
+gulp.task('findSmallImages', function(callBack) {
+    exec('node getS3ImageSize.js', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        callBack(err);
+    });
+});
+
 // Default Task
 gulp.task('default', gulpSequence('download','upload'));
