@@ -14,7 +14,8 @@
     "ftp-client": "^0.2.2",
     "gm": "^1.23.0",
     "gulp": "^3.9.1",
-    "gulp-sequence": "^0.4.6"
+    "gulp-sequence": "^0.4.6",
+    "mysql": "^2.11.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

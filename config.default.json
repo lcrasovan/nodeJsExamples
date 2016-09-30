@@ -9,6 +9,7 @@
   "pathToPhotosWithPrefix": "relative/path/to/your/image/folder/your_prefix",
   "samplePhotoKey": "s3/key/of/your/sample/photo",
   "localPhotoPath": "relative/path/to/destination/photo",
+  "urlAmazonS3": "https://your_amazon_s3_subdomain.cloudfront.net/",
   "ftp": {
     "host": "IP.YOUR.FTP.HOST",
     "port": 21,
