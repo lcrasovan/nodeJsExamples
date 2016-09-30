@@ -21,6 +21,13 @@ node file_name.js
 
 Just a simple working example showing FTP file download with ftp-client
 
+## Connect to MySQL DB (Amazon RDS) and query it and then do something with the results
+
+Just a simple working example showing MySQL DB query. 
+
+I needed to construct a local folder structure to reflect the hierarchy of some entities
+(e.g. images of products belonging to restaurants in specific cities in some countries) stored in the DB
+
 ## Upload files to GDrive using the Google Drive API (OAuth2 client)
 
 Prerequisites:
