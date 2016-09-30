@@ -17,6 +17,10 @@ all the needed authentication steps, do
 
 node file_name.js
 
+## Download file from FTP
+
+Just a simple working example showing FTP file download with ftp-client
+
 ## Upload files to GDrive using the Google Drive API (OAuth2 client)
 
 Prerequisites:
