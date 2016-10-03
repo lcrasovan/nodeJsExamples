@@ -1,11 +1,19 @@
 // Include gulp
-var gulp = require('gulp');
-var gulpSequence = require('gulp-sequence');
-var exec = require('child_process').exec;
+var gulp = require('gulp'),
+    gulpSequence = require('gulp-sequence'),
+    exec = require('child_process').exec,
+    minimist = require('minimist');
+
+var knownOptions = {
+    string: 'daysBefore',
+    default: { daysBefore: 1 }
+};
+
+var options = minimist(process.argv.slice(2), knownOptions);
 
 // download task
 gulp.task('download', function(callBack) {
-    exec('node ftpDownloader.js', function (err, stdout, stderr) {
+    exec('node ftpDownloader.js --daysBefore ' + options.daysBefore, function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         callBack(err);
@@ -14,7 +22,10 @@ gulp.task('download', function(callBack) {
 
 // upload task
 gulp.task('upload', function(callBack) {
-    exec('node uploadToGDrive.js', function (err, stdout, stderr) {
+
+    console.log('In upload task: ' + options.daysBefore);
+    
+    exec('node uploadToGDrive.js --daysBefore ' + options.daysBefore, function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         callBack(err);
@@ -29,6 +40,9 @@ gulp.task('findSmallImages', function(callBack) {
         callBack(err);
     });
 });
+
+
+
 
 // Default Task
 gulp.task('default', gulpSequence('download','upload'));

@@ -1,7 +1,11 @@
 var fs = require('fs');
 var readline = require('readline');
 var google = require('googleapis');
-var googleAuth = require('google-auth-library');
+var googleAuth = require('google-auth-library'),
+    moment = require('moment'),
+    fs = require('fs'),
+    minimist = require('minimist'),
+    config = JSON.parse(fs.readFileSync(__dirname + '/config.json'));
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/drive-nodejs-quickstart.json
@@ -14,8 +18,17 @@ var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
 var TOKEN_PATH = TOKEN_DIR + 'drive-nodejs-quickstart.json';
 
-var fileToUpload = 'put_here_the_File_to_upload.csv';
-var sourceFolder = 'relative/path/to/the/folder/where/the/file/to/upload/is';
+var knownOptions = {
+    string: 'daysBefore',
+    default: { daysBefore: 1 }
+};
+
+var options = minimist(process.argv.slice(2), knownOptions);
+
+var daysBefore = options.daysBefore;
+var formatedDate = moment().subtract(daysBefore, 'days').format('YYYY-MM-DD');
+var fileToUpload = config['gdrive']['filePrefix'] + formatedDate + '.csv';
+var sourceFolder = config['gdrive']['sourceFolder'];
 
 // Load client secrets from a local file.
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
