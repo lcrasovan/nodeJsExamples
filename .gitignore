@@ -3,3 +3,4 @@
 config.json
 /images/*
 client_secret.json
+/data/*
