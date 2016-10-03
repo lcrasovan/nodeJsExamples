@@ -23,5 +23,9 @@
     "user": "your_db_user",
     "password": "your_db_password",
     "database": "your_db"
+  },
+  "gdrive": {
+    "filePrefix": "YOUR-PREFIX-IF-NEEDED-",
+    "sourceFolder": "relative/path/to/your/files/to/be/uploaded/"
   }
 }
