@@ -4,14 +4,18 @@ var mysql = require('mysql'),
     config = JSON.parse(fs.readFileSync(__dirname + '/config.json')),
     connection = mysql.createConnection(config.mysql);
 
-function processRow(row, callback) {
-    console.log(row[Object.keys(row)[0]]);
+function processRow(city, name, callback) {
+    console.log('Processing ' + name);
+    mkdirp('data/' + city, function(error) {});
+    mkdirp('data/' + city + '/' + name, function(error) {});
     callback();
 }
 
 function findProviderLinksByCityId(cityId) {
     
-    var parameters = [];
+    var parameters = [],
+        city = config.cities[cityId];
+
     parameters.push(cityId);
 
     connection.connect(function(err) {
@@ -34,11 +38,12 @@ function findProviderLinksByCityId(cityId) {
             // Pausing the connnection is useful if your processing involves I/O
              connection.pause();
             //
-             processRow(row, function() {
+             processRow(city, row[Object.keys(row)[0]], function() {
                  connection.resume();
              });
         })
         .on('end', function() {
+            connection.end();
         });
 };
 

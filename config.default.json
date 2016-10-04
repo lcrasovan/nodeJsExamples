@@ -29,13 +29,8 @@
     "sourceFolder": "relative/path/to/your/files/to/be/uploaded/"
   },
   "cities": {
-    "1": "paris",
-    "2": "lyon",
-    "3": "bruxelles",
-    "10": "madrid",
-    "11": "barcelona",
-    "12": "berlin",
-    "13": "hamburg"
+    "1": "firstCity",
+    "2": "secondCity"
   },
   "repository": {
     "findProviderLinksByCityId": {
