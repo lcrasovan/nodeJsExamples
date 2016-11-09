@@ -61,7 +61,7 @@ http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html
 
 ## Solve Christmas Tree Drawing problem
 
-Given a number n, smaller than a maximum admitted number, draw a Christmas Tree with '#' having the pattern show in the above image
+Given a number n, smaller than a maximum admitted number, draw a Christmas Tree with '#' symbols having the pattern show in the below image
 
 
 ![Alt Christmas Tree Sample For n = 6](img/tree.png?raw=true "Christmas Tree Pattern")
