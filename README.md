@@ -27,7 +27,9 @@ it will do it for the file corresponding to the day before yesterday.
 To run the examples individually, first pass through the prerequisites and, finally, after setting up credentials and
 all the needed authentication steps, do
 
+```language=shell
 node file_name.js
+```
 
 ## Download file from FTP
 
