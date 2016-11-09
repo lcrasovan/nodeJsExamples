@@ -45,4 +45,10 @@ Prerequisites:
 Get the secret keys from AMAZON and store it in local ~/.aws/credentials file:
 http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html
 
+## Solve Christmas Tree Drawing problem
+
+Given a number n, smaller than a maximum admitted number, draw a Christmas Tree with '#' having the pattern show in the above image
+
+
+![Alt Christmas Tree Sample For n = 6](img/tree.png?raw=true "Christmas Tree Pattern")
 
