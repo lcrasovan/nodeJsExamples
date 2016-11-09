@@ -52,3 +52,9 @@ Given a number n, smaller than a maximum admitted number, draw a Christmas Tree 
 
 ![Alt Christmas Tree Sample For n = 6](img/tree.png?raw=true "Christmas Tree Pattern")
 
+To run it simply put:
+
+```language=shell
+gulp drawChristmasTree --maxNumber 150 --n 6
+```
+
