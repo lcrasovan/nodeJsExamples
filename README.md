@@ -2,17 +2,29 @@
 
 For installing the dependencies run
 
+```language=shell
 npm install
+```
 
 You can configure your gulp tasks by editing the gulpfile.js
 
 By default running
 
+```language=shell
 gulp
+```
 
-Will run the default task that consists in downloading and uploading a file, sequencialy.
+Will run the default task that consists in downloading and uploading a file corresponding to one day before, sequencialy.
 
-To tun the examples individually, first pass through the prerequisites and, finally, after setting up credentials and
+When executed with command line parameter <b>daysBefore</b>, like this
+
+```language=shell
+gulp --daysBefore 2
+```
+
+it will do it for the file corresponding to the day before yesterday.
+
+To run the examples individually, first pass through the prerequisites and, finally, after setting up credentials and
 all the needed authentication steps, do
 
 node file_name.js
@@ -51,4 +63,10 @@ Given a number n, smaller than a maximum admitted number, draw a Christmas Tree 
 
 
 ![Alt Christmas Tree Sample For n = 6](img/tree.png?raw=true "Christmas Tree Pattern")
+
+To run it simply put:
+
+```language=shell
+gulp drawChristmasTree --maxNumber 150 --n 6
+```
 
