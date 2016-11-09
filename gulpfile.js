@@ -5,8 +5,12 @@ var gulp = require('gulp'),
     minimist = require('minimist');
 
 var knownOptions = {
-    string: 'daysBefore',
-    default: { daysBefore: 1 }
+    string: ['daysBefore', 'n', 'maxNumber'],
+    default: {
+        daysBefore: 1,
+        n: 6,
+        maxNumber: 100
+    }
 };
 
 var options = minimist(process.argv.slice(2), knownOptions);
@@ -32,12 +36,27 @@ gulp.task('upload', function(callBack) {
     });
 });
 
-// upload task
+// find small images
 gulp.task('findSmallImages', function(callBack) {
     exec('node getS3ImageSize.js', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         callBack(err);
+    });
+});
+
+// draw christmastree
+gulp.task('drawChristmasTree', function(callBack) {
+    exec('node drawChristmasTree.js --n ' + options.n + ' --maxNumber ' + options.maxNumber , function(err, stdout, stderr) {
+
+        console.log(stdout);
+
+        if (stderr) {
+            console.log(stderr);
+        }
+
+        callBack(err);
+
     });
 });
 
