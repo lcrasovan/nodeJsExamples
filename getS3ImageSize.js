@@ -28,7 +28,6 @@ function showImageDimensions(params) {
             if (err) {
                 console.log(err, err.stack);
             } else {
-                console.log('Possible small image:' + params['Key']);
                 if (size.width < minWidth) {
                     console.log('Small image:' +
                         params['Key'] + ' | dimensions: ' +

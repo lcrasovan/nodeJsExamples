@@ -1,5 +1,5 @@
 var mysqlRepository = require('./mysqlRepository.js'),
-    cityId = 11;
+    cityId = 13;
 
 mysqlRepository.findProviderLinksByCityId(cityId);
 
