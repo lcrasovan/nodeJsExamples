@@ -2,23 +2,27 @@ var mysql = require('mysql'),
     fs = require('fs'),
     mkdirp = require('mkdirp'),
     config = JSON.parse(fs.readFileSync(__dirname + '/config.json')),
-    connection = mysql.createConnection(config.mysql);
+    connection = mysql.createConnection(config.mysql),
+    q = require('q');
 
 function processRow(city, name, callback) {
     console.log('Processing ' + name);
-    mkdirp('data/' + city, function(error) {});
-    mkdirp('data/' + city + '/' + name, function(error) {});
+    mkdirp('data/' + city, function (error) {
+    });
+    mkdirp('data/' + city + '/' + name, function (error) {
+    });
     callback();
 }
 
 function findProviderLinksByCityId(cityId) {
-    
+
     var parameters = [],
         city = config.cities[cityId];
+    var def = q.defer();
 
     parameters.push(cityId);
 
-    connection.connect(function(err) {
+    connection.connect(function (err) {
         if (err) {
             console.error('error connecting: ' + err.stack);
             return;
@@ -27,24 +31,28 @@ function findProviderLinksByCityId(cityId) {
 
     var query = connection.query(config.repository.findProviderLinksByCityId.query, parameters);
     query
-        .on('error', function(err) {
+        .on('error', function (err) {
+            def.reject('GET ERROR: '  + err);
             // Handle error, an 'end' event will be emitted after this as well
             throw err;
         })
-        .on('fields', function(fields) {
+        .on('fields', function (fields) {
             // the field packets for the rows to follow
         })
-        .on('result', function(row) {
+        .on('result', function (row) {
             // Pausing the connnection is useful if your processing involves I/O
-             connection.pause();
+            //connection.pause();
             //
-             processRow(city, row[Object.keys(row)[0]], function() {
-                 connection.resume();
-             });
+            //processRow(city, row[Object.keys(row)[0]], function () {
+            //    connection.resume();
+            //});
         })
-        .on('end', function() {
+        .on('end', function (rows) {
+            def.resolve(rows);
             connection.end();
         });
+    
+    return def.promise;
 };
 
 module.exports.findProviderLinksByCityId = findProviderLinksByCityId;
